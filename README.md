@@ -1,3 +1,3 @@
 # Pygame_game
 
-![Block Diagram](game.png)
+![Block Diagram](Game.png)
