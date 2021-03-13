@@ -40,6 +40,10 @@ thief_x = random.randint(20, screen_width/2)
 thief_y = random.randint(20, screen_height/2)
 danger_x=random.randint(20, screen_width/2)
 danger_y=random.randint(20, screen_width/2)
+
+health_x=random.randint(20, screen_width/2)
+health_y=random.randint(20, screen_width/2)
+
 score = 1
 init_velocity = 5
 police_size = 30
@@ -99,6 +103,12 @@ while not exit_game:
         danger_x = random.randint(20, screen_width / 2)
         danger_y = random.randint(20, screen_height / 2)
     
+    if abs(x_police - health_x)<6 and abs(y_police - health_y)<6:
+        score =score+3
+        print("Score: ", score)
+        health_x = random.randint(20, screen_width / 2)
+        health_y = random.randint(20, screen_height / 2)
+
 
     if abs(x_police - thief_x)<6 and abs(y_police - thief_y)<6:
         score *=5
@@ -118,6 +128,7 @@ while not exit_game:
 
     pygame.draw.rect(gameWindow, green, [thief_x, thief_y, police_size, police_size])
     pygame.draw.rect(gameWindow, red, [danger_x, danger_y, police_size, police_size])
+    pygame.draw.rect(gameWindow, yellow, [health_x, health_y, police_size, police_size])
     pygame.draw.rect(gameWindow, blue, [x_police, y_police, police_size, police_size])
     pygame.display.update()
     clock.tick(fps)
